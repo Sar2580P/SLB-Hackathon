@@ -51,8 +51,9 @@ def translate_v2(structured_notice: dict, target_lang: str, base_lang: str = 'En
     final_dict = {}
     for key in structured_notice.keys():
 
-        translated_key = language_translator(key, base_lang, target_lang)
+        # translated_key = language_translator(key, base_lang, target_lang)
         if key.strip().lower() == 'emergency contact numbers':
+            translated_key = language_translator(key, base_lang, target_lang)
             final_dict[translated_key] = structured_notice[key]
 
         elif 'overview' in key.strip().lower():
@@ -67,10 +68,15 @@ def translate_v2(structured_notice: dict, target_lang: str, base_lang: str = 'En
 
             final_dict["overview"+translated_key] = sub_dict
 
-        else:
-            translated_value = language_translator(
-                structured_notice[key], base_lang, target_lang)
-            final_dict[key] = translated_key + " @@ " + translated_value
+        elif key == 'about':
+            for string in structured_notice[key]:
+                li = string.split('@@')
+                # li = structured_notice[key].split('@@')
+                akey , text = li[0] , li[1]
+                translated_key = language_translator(akey, base_lang, target_lang)
+                translated_value = language_translator(
+                    text, base_lang, target_lang)
+                final_dict[key] = translated_key + " @@ " + translated_value
 
     return final_dict
 
