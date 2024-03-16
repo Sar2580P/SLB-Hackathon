@@ -101,7 +101,7 @@ def produce_translations(notice: str) -> dict:
     structured_notice["language"] = "English"
     translations.append(structured_notice)
     save_to_json(structured_notice, 'English')
-    for lang in ['French']:
+    for lang in ['French', 'hindi', 'german']:
         answer = translate_v2(structured_notice, lang)
         answer["language"] = lang
         translations.append(answer)
@@ -133,4 +133,4 @@ outage. Ensure access to other reliable methods of communication until it is res
  Maintain a list of emergency contacts, both electronic and on paper.
 
 '''
-produce_translations(text)
+# produce_translations(text)
