@@ -38,7 +38,10 @@ def first_translate_notice(notice: str):
                 final_dict["heading"] = translated_key + \
                     " @@ " + translated_value
             else:
-                final_dict["about"].append(translated_key +
+                print("print about", translated_value)
+                # concate all new line to single string
+                translated_value = translated_value.replace('\n', ' ')
+                final_dict["about"].append(translated_key.strip() +
                                            " @@ " + translated_value
                                            )
     return final_dict
@@ -49,6 +52,7 @@ def first_translate_notice(notice: str):
 def translate_v2(structured_notice: dict, target_lang: str, base_lang: str = 'English') -> str:
     print('Inside translate_v2')
     final_dict = {}
+    final_dict['about'] = []
     for key in structured_notice.keys():
 
         # translated_key = language_translator(key, base_lang, target_lang)
@@ -101,6 +105,7 @@ def produce_translations(notice: str) -> dict:
         answer = translate_v2(structured_notice, lang)
         answer["language"] = lang
         translations.append(answer)
+        print('\n\nanswer : ', answer)
         save_to_json(translations[-1], lang)
 
     return translations
