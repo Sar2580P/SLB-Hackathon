@@ -4,6 +4,10 @@
 
 This document outlines the workflow for translating text from a given language to another specified language in several steps. The process involves creating a dictionary of possible headings, filtering these headings, extracting sub-headings, and finally translating the text. The goal is to enhance translation quality and readability by organizing the text into meaningful sections.
 
+## Certificate
+
+![1](/image/certificate.jpg)
+
 ## Step-by-Step Process
 
 1. _Creating Dictionary of Possible Headings_:
@@ -34,7 +38,14 @@ This document outlines the workflow for translating text from a given language t
 
 ## Workflow
 
-![WorkFlow](/workflow.png)
+![WorkFlow](/image/workflow.png)
+
+## Frontend
+
+![1](/image/1.png)
+![2](/image/2.png)
+![3](/image/3.png)
+![4](/image/4.png)
 
 ## Getting Started
 
